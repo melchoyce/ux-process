@@ -1,0 +1,197 @@
+/**
+ * Black theme for reveal.js.
+ *
+ * Copyright (C) 2011-2012 Hakim El Hattab, http://hakim.se
+ */
+
+$bg: #2c3e50;
+$header-text: #ecf0f1;
+
+$standard: #c7eee6;
+$standard-base: #16a085;
+
+$image: #c7f0d8;
+$image-base: #27ae60;
+
+$gallery: #c7e0f0;
+$gallery-base: #2980b9;
+
+$link: #f2dcfa;
+$link-base: #8e44ad;
+
+$status: #fadcec;
+$status-base: #ad2f62;
+
+$video: #fadfdc;
+$video-base: #c0392b;
+
+$audio: #faeadc;
+$audio-base: #d35400;
+
+$chat: #faeedc;
+$chat-base: #d99425; //#f39c12;
+
+$quote: #dcfafa;
+$quote-base: #21a3a4;
+
+$aside: #eefadc;
+$aside-base: #6fa623;
+
+$widget: #cbd6d6;
+$widget-header: #7f8c8d;
+
+// Default mixins and settings -----------------
+@import "../template/mixins";
+@import "../template/settings";
+// ---------------------------------------------
+
+// Include theme-specific fonts
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400,600,200italic,400italic,600italic');
+
+// Override theme settings (see ../template/settings.scss)
+$backgroundColor: $bg;
+
+$mainFont: 'Source Sans Pro', sans-serif;
+$linkColor: $header-text;
+$linkColorHover: lighten( $linkColor, 20% );
+$headingFont: 'Source Sans Pro', sans-serif;
+$headingTextShadow: none;
+$headingTextTransform: none;
+$selectionBackgroundColor: $header-text;
+$mainFontSize: 30px;
+
+
+// Theme template ------------------------------
+// Base theme template for reveal.js
+@import "../template/theme";
+// ---------------------------------------------
+
+
+/*********************************************
+ * GLOBAL STYLES
+ *********************************************/
+
+body {
+	@include bodyBackground();
+	background-color: $backgroundColor;
+	
+	.standard & {
+		background-color: darken( $standard-base, 10% );
+		.reveal { color: $standard; }
+	}
+	
+	.image & {
+		background-color: darken( $image-base, 10% );
+		.reveal { color: $image; }
+	}
+	
+	.gallery & {
+		background-color: darken( $gallery-base, 10% );
+		.reveal { color: $gallery; }
+	}
+	
+	.link & {
+		background-color: darken( $link-base, 10% );
+		.reveal { color: $link; }
+	}
+
+	.status & {
+		background-color: darken( $status-base, 10% );
+		.reveal { color: $status; }
+	}
+
+	.video & {
+		background-color: darken( $video-base, 10% );
+		.reveal { color: $video; }
+	}
+
+	.audio & {
+		background-color: darken( $audio-base, 10% );
+		.reveal { color: $audio; }
+	}
+
+	.chat & {
+		background-color: darken( $chat-base, 10% );
+		.reveal { color: $chat; }
+	}
+
+	.quote & {
+		background-color: darken( $quote-base, 10% );
+		.reveal { color: $quote; }
+	}
+
+	.aside & {
+		background-color: darken( $aside-base, 10% );
+		.reveal { color: $aside; }
+	}
+}
+
+.reveal {
+	font-family: $mainFont;
+	font-size: $mainFontSize;
+	font-weight: 200;
+	color: $mainColor;
+}
+.reveal .slides>section, .reveal .slides>section>section {
+	font-weight: 200;
+}
+
+::selection {
+	color: $selectionColor;
+	background: $selectionBackgroundColor;
+	text-shadow: none;
+}
+
+/*********************************************
+ * HEADERS
+ *********************************************/
+
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6 {
+	margin: 0 0 20px 0;
+	color: $headingColor;
+
+	font-family: $headingFont;
+	line-height: 1;
+	letter-spacing: 0;
+	font-weight: 200;
+
+	text-transform: $headingTextTransform;
+	text-shadow: $headingTextShadow;
+}
+
+.reveal h1 {
+	text-shadow: $heading1TextShadow;
+}
+
+
+/*********************************************
+ * LINKS
+ *********************************************/
+
+.reveal a:not(.image) {
+	color: $linkColor;
+	text-decoration: none;
+
+	-webkit-transition: color .15s ease;
+	   -moz-transition: color .15s ease;
+	    -ms-transition: color .15s ease;
+	     -o-transition: color .15s ease;
+	        transition: color .15s ease;
+}
+	.reveal a:not(.image):hover {
+		color: $linkColorHover;
+
+		text-shadow: none;
+		border: none;
+	}
+
+.reveal .roll span:after {
+	color: #fff;
+	background: darken( $linkColor, 15% );
+}
+
